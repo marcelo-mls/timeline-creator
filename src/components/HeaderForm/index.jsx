@@ -11,7 +11,7 @@ function HeaderForm(props) {
 
   const [year, setYear] = useState('');
   const [event, setEvent] = useState('');
-  const [image, setImage] = useState('https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930');
+  const [image, setImage] = useState('');
   const [disableBtn, setDisableBtn] = useState(true);
 
   const handleClick = () => {

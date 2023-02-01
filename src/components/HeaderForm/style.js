@@ -6,6 +6,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   gap: 16px;
+  background-color: #353B45;
 `;
 
 export default Container;
