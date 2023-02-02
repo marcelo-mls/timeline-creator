@@ -1,19 +1,25 @@
 import styled from 'styled-components';
 
-export const TimelineContainer = styled.div`
+export const TimelineContainer = styled.main`
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: auto;
   overflow-x: auto;
   width: 100%;
+  position: relative;
 
   div {
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     justify-content: space-between;
     min-width: 10%;
     text-align: center;
+    height: 218px;
+    margin-bottom: 128px;
   }
 
   p {
@@ -28,10 +34,25 @@ export const TimelineContainer = styled.div`
     height: 100px;
     object-fit: cover;
     width: 100px;
+    transition: transform 800ms ease;
+
+    &:hover {
+      transform: scale(1.1)
+    }
+  }
+
+  &:after {
+    content: '';
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    background-color: #0057b7;
+    top: 50%;
+    z-index: -1;
   }
 `;
 
-export const YearText = styled.div`
+export const YearText = styled.h1`
   color: #0057b7;
   font-size: larger;
   font-weight: 700;

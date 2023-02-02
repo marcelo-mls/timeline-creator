@@ -6,7 +6,7 @@ function Timeline(props) {
   const { timelineData } = props;
 
   return (
-    <TimelineContainer className="timeline">
+    <TimelineContainer>
       {timelineData.map((item, index) => (
         <div key={item.event} className={index % 2 === 0 ? 'up' : 'down'}>
           <YearText>{item.year}</YearText>

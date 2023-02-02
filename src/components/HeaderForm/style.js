@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
-  padding: 16px 0;
-  margin-bottom: 64px;
+export const Container = styled.header`
   display: flex;
-  justify-content: center;
-  gap: 16px;
+  flex-grow: 0;
+  flex-basis: auto;
+  justify-content: space-between;
+  align-items: center;
   background-color: #353B45;
+  padding: 16px;
 `;
 
-export default Container;
+export const FormContainer = styled.form`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
