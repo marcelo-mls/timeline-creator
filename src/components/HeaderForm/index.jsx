@@ -26,7 +26,7 @@ function HeaderForm(props) {
 
     localStorage.setItem('timeLineData', JSON.stringify(newTimeLine));
 
-    toast.success('Evento adicionado com sucesso!');
+    toast.success('Event successfully added!');
 
     setTimelineData(newTimeLine);
     setYear('');
@@ -37,6 +37,7 @@ function HeaderForm(props) {
   const handleDeleteClick = () => {
     localStorage.setItem('timeLineData', JSON.stringify([]));
     setTimelineData([]);
+    toast.success('Your timeline is ready!');
   };
 
   const handleDisableBtn = () => year.length > 0 && event.length > 0;
