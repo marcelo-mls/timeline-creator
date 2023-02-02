@@ -26,3 +26,18 @@ https://user-images.githubusercontent.com/102492818/216214000-9c38f7e8-d4bc-4a89
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 </div>
+
+### `Ideas for next features`
+
+- Proportional distance between events (toggle);
+- Events interspersed up and down;
+- Delete/edit event button;
+- Save multiple timelines;
+- Stack very close dates;
+- Insert complete dates;
+- Toggle timeline axis;
+- Insert local images;
+- More color options;
+- Generate PDF/JPG;
+- Switch language;
+- Mobile layout;
