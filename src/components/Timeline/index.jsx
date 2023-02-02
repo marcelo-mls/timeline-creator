@@ -1,23 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Timeline.css';
+import { TimelineContainer, YearText } from './style';
 
 function Timeline(props) {
   const { timelineData } = props;
 
   return (
-    <div>
-      <div className="timeline">
-        {timelineData.map((item, index) => (
-          <div key={item.event} className={index % 2 === 0 ? 'event left' : 'event right'}>
-            <p className="year">{item.year}</p>
-            <p>{item.event}</p>
-            <img src={item.image} alt={item.event} />
-          </div>
-        ))}
-      </div>
-
-    </div>
+    <TimelineContainer>
+      {timelineData.map((item, index) => (
+        <div key={item.event} className={index % 2 === 0 ? 'up' : 'down'}>
+          <YearText>{item.year}</YearText>
+          <p>{item.event}</p>
+          <img src={item.image} alt={item.event} />
+        </div>
+      ))}
+    </TimelineContainer>
   );
 }
 
