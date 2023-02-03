@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tooltip, IconButton } from '@mui/material';
+import { Tooltip, IconButton, Zoom } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import { TimelineContainer, YearText } from './style';
@@ -19,6 +19,7 @@ function Timeline(props) {
           )}
           key={item.event}
           arrow
+          TransitionComponent={Zoom}
           placement="bottom"
         >
           <div className={index % 2 === 0 ? 'up' : 'down'}>
