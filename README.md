@@ -29,15 +29,16 @@ https://user-images.githubusercontent.com/102492818/216214000-9c38f7e8-d4bc-4a89
 
 ### `Ideas for next features`
 
-- Proportional distance between events (toggle);
-- Events interspersed up and down;
-- Delete/edit event button;
-- Save multiple timelines;
-- Stack very close dates;
-- Insert complete dates;
-- Toggle timeline axis;
-- Insert local images;
-- More color options;
-- Generate PDF/JPG;
-- Switch language;
-- Mobile layout;
+- [ ] Proportional distance between events (toggle);
+- [ ] Events interspersed up and down;
+- [ ] Save multiple timelines;
+- [ ] Stack very close dates;
+- [ ] Insert complete dates;
+- [ ] Toggle timeline axis;
+- [ ] Insert local images;
+- [x] Delete event button;
+- [ ] More color options;
+- [ ] Edit event button;
+- [ ] Generate PDF/JPG;
+- [ ] Switch language;
+- [ ] Mobile layout;
