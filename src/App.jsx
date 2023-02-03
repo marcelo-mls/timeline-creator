@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Main />
-      <ToastContainer position="bottom-center" autoClose={1000} />
+      <ToastContainer position="bottom-center" autoClose={2000} />
     </>
   );
 }

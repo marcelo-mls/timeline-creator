@@ -26,7 +26,7 @@ function HeaderForm(props) {
 
     localStorage.setItem('timeLineData', JSON.stringify(newTimeLine));
 
-    toast.success('Event successfully added!');
+    toast.success(`Event from ${year} successfully added!`);
 
     setTimelineData(newTimeLine);
     setYear('');

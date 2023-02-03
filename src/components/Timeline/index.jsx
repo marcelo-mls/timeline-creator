@@ -1,18 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Tooltip, IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 import { TimelineContainer, YearText } from './style';
 
 function Timeline(props) {
-  const { timelineData } = props;
+  const { timelineData, handleDelete } = props;
 
   return (
     <TimelineContainer>
       {timelineData.map((item, index) => (
-        <div key={item.event} className={index % 2 === 0 ? 'up' : 'down'}>
-          <YearText>{item.year}</YearText>
-          <p>{item.event}</p>
-          <img src={item.image} alt={item.event} />
-        </div>
+        <Tooltip
+          title={(
+            <IconButton onClick={() => handleDelete(index, item.year)}>
+              <DeleteIcon color="error" />
+            </IconButton>
+          )}
+          key={item.event}
+          arrow
+          placement="bottom"
+        >
+          <div className={index % 2 === 0 ? 'up' : 'down'}>
+            <YearText>{item.year}</YearText>
+            <p>{item.event}</p>
+            <img src={item.image} alt={item.event} />
+          </div>
+        </Tooltip>
       ))}
     </TimelineContainer>
   );
