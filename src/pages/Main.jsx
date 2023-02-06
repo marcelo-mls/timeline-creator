@@ -16,12 +16,29 @@ function Main() {
     toast.success(`Event from ${year} deleted!`);
   };
 
+  const handleEdit = (index, year) => {
+    const eventToEdit = timelineData[index];
+
+    console.log(eventToEdit);
+
+    // setTimelineData(newTimeline);
+    // localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
+
+    toast.success(`Event from ${year} Edited!`);
+  };
+
   return (
     <MainContainer>
       <HeaderForm timelineData={timelineData} setTimelineData={setTimelineData} />
       { timelineData.length === 0
         ? <IntroText>Use the inputs above to start creating your Timeline...</IntroText>
-        : <Timeline timelineData={timelineData} handleDelete={handleDelete} />}
+        : (
+          <Timeline
+            timelineData={timelineData}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+          />
+        )}
     </MainContainer>
   );
 }
