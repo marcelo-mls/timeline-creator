@@ -29,7 +29,8 @@ export const TimelineContainer = styled.main`
   }
 
   img {
-    border: 2px solid #0057b7;
+    border: 3px solid #0277BD;
+    background-color: white;
     border-radius: 50%;
     height: 100px;
     object-fit: cover;
@@ -46,14 +47,14 @@ export const TimelineContainer = styled.main`
     height: 4px;
     width: 100%;
     position: absolute;
-    background-color: #0057b7;
+    background-color: #0277BD;
     top: 50%;
     z-index: -1;
   }
 `;
 
 export const YearText = styled.h1`
-  color: #0057b7;
+  color: #0277BD;
   font-size: larger;
   font-weight: 700;
 `;

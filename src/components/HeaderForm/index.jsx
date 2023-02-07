@@ -4,7 +4,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Button, TextField } from '@mui/material';
 import { toast } from 'react-toastify';
-import emptyPhoto from '../../images/paper.png';
+import emptyPhoto from '../../images/paper.svg';
 
 import { Container, FormContainer } from './style';
 
