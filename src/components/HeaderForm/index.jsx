@@ -84,16 +84,17 @@ function HeaderForm(props) {
         </Button>
       </FormContainer>
 
+      {timelineData.length > 0 && (
       <Button
         type="button"
         variant="contained"
         color="error"
         onClick={handleDeleteClick}
-        disabled={timelineData.length === 0}
         startIcon={<DeleteForeverIcon />}
       >
         Remove all
       </Button>
+      )}
     </Container>
   );
 }

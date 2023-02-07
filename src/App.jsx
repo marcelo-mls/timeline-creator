@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <Main />
-      <ToastContainer position="bottom-center" autoClose={2000} />
+      <ToastContainer position="bottom-center" autoClose={1000} />
     </ThemeProvider>
   );
 }
