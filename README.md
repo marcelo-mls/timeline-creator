@@ -38,7 +38,7 @@ https://user-images.githubusercontent.com/102492818/216214000-9c38f7e8-d4bc-4a89
 - [ ] Insert local images;
 - [x] Delete event button;
 - [ ] More color options;
-- [ ] Edit event button;
+- [x] Edit event button;
 - [ ] Generate PDF/JPG;
 - [ ] Switch language;
 - [ ] Mobile layout;
