@@ -13,7 +13,7 @@ function Timeline(props) {
       {timelineData.map((item, index) => (
         <Tooltip
           arrow
-          key={item.event}
+          key={item.historicalEvent}
           placement="bottom"
           TransitionComponent={Zoom}
           title={(
@@ -27,8 +27,8 @@ function Timeline(props) {
         >
           <div className={index % 2 === 0 ? 'up' : 'down'}>
             <YearText>{item.year}</YearText>
-            <p>{item.event}</p>
-            <img src={item.image} alt={item.event} />
+            <p>{item.historicalEvent}</p>
+            <img src={item.imageUrl} alt={item.historicalEvent} />
           </div>
         </Tooltip>
       ))}

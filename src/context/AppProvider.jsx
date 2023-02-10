@@ -15,7 +15,7 @@ function AppProvider({ children }) {
     setHistoricalEvent,
     imageUrl,
     setImageUrl,
-  }), []);
+  }), [year, historicalEvent, imageUrl]);
 
   return (
     <AppContext.Provider value={context}>

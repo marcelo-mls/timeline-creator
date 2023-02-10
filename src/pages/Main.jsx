@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import HeaderForm from '../components/HeaderForm';
 import Timeline from '../components/Timeline';
 import WelcomeText from '../components/WelcomeText';
+import AppContext from '../context/AppContext';
 import MainContainer from './style';
 
 function Main() {
+  const {
+    historicalEvent,
+  } = useContext(AppContext);
   const [timelineData, setTimelineData] = useState(JSON.parse(localStorage.getItem('timeLineData')) || []);
 
   const handleDelete = (index, year) => {
@@ -33,7 +37,7 @@ function Main() {
         timelineData={timelineData}
         setTimelineData={setTimelineData}
       />
-
+      <p>{`teste ${historicalEvent}`}</p>
       { timelineData.length === 0 ? <WelcomeText /> : (
         <Timeline
           timelineData={timelineData}

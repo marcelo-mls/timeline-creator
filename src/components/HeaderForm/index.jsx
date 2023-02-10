@@ -25,7 +25,7 @@ function HeaderForm(props) {
 
   const handleAddClick = () => {
     const imageTreatment = imageUrl || emptyPhoto;
-    const newTimeLine = [...timelineData, { year, setHistoricalEvent, imageUrl: imageTreatment }]
+    const newTimeLine = [...timelineData, { year, historicalEvent, imageUrl: imageTreatment }]
       .sort((a, b) => {
         if (a.year < b.year) return -1;
         if (a.year > b.year) return 1;
@@ -62,7 +62,7 @@ function HeaderForm(props) {
           label="Year"
           variant="outlined"
           size="small"
-          // value={year}
+          value={year}
           onChange={(e) => setYear(e.target.value)}
         />
         <TextField
@@ -70,7 +70,7 @@ function HeaderForm(props) {
           label="Event"
           variant="outlined"
           size="small"
-          // value={historicalEvent}
+          value={historicalEvent}
           onChange={(e) => setHistoricalEvent(e.target.value)}
         />
         <TextField
@@ -78,7 +78,7 @@ function HeaderForm(props) {
           label="Image URL"
           variant="outlined"
           size="small"
-          // value={imageUrl}
+          value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
         <Button

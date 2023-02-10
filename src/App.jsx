@@ -10,10 +10,10 @@ import darkTheme from './services/themeColor';
 function App() {
   return (
     <AppProvider>
-     <ThemeProvider theme={darkTheme}>
-      <Main />
-      <ToastContainer position="bottom-center" autoClose={2000} />
-     </ThemeProvider>
+      <ThemeProvider theme={darkTheme}>
+        <Main />
+        <ToastContainer position="bottom-center" autoClose={2000} />
+      </ThemeProvider>
     </AppProvider>
   );
 }
