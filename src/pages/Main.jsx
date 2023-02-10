@@ -1,47 +1,22 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
+import React, { useContext } from 'react';
 
 import HeaderForm from '../components/HeaderForm';
 import Timeline from '../components/Timeline';
 import WelcomeText from '../components/WelcomeText';
 import MainContainer from './style';
+import AppContext from '../context/AppContext';
 
 function Main() {
-  const [timelineData, setTimelineData] = useState(JSON.parse(localStorage.getItem('timeLineData')) || []);
-
-  const handleDelete = (index, year) => {
-    const newTimeline = timelineData.filter((_historicalEvent, i) => i !== index);
-    setTimelineData(newTimeline);
-    localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
-
-    toast.success(`Event from ${year} deleted!`);
-  };
-
-  const handleEdit = (index, year) => {
-    // const eventToEdit = timelineData[index];
-
-    // setTimelineData(newTimeline);
-    // localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
-
-    toast.success(`Event from ${year} Edited!`);
-  };
+  const { timelineData } = useContext(AppContext);
 
   return (
     <MainContainer>
-
-      <HeaderForm
-        timelineData={timelineData}
-        setTimelineData={setTimelineData}
-      />
-
-      { timelineData.length === 0 ? <WelcomeText /> : (
-        <Timeline
-          timelineData={timelineData}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        />
-      )}
-
+      <HeaderForm />
+      {
+        timelineData.length === 0
+          ? <WelcomeText />
+          : <Timeline />
+      }
     </MainContainer>
   );
 }

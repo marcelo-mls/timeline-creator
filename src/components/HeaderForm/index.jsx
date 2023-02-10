@@ -9,11 +9,7 @@ import emptyPhoto from '../../images/paper.svg';
 import AppContext from '../../context/AppContext';
 import { Container, FormContainer } from './style';
 
-function HeaderForm(props) {
-  const { timelineData, setTimelineData } = props;
-
-  const [disableBtn, setDisableBtn] = useState(true);
-
+function HeaderForm() {
   const {
     year,
     setYear,
@@ -21,11 +17,15 @@ function HeaderForm(props) {
     setHistoricalEvent,
     imageUrl,
     setImageUrl,
+    timelineData,
+    setTimelineData,
   } = useContext(AppContext);
+
+  const [disableBtn, setDisableBtn] = useState(true);
 
   const handleAddClick = () => {
     const imageTreatment = imageUrl || emptyPhoto;
-    const newTimeLine = [...timelineData, { year, setHistoricalEvent, imageUrl: imageTreatment }]
+    const newTimeLine = [...timelineData, { year, historicalEvent, imageUrl: imageTreatment }]
       .sort((a, b) => {
         if (a.year < b.year) return -1;
         if (a.year > b.year) return 1;
@@ -62,7 +62,7 @@ function HeaderForm(props) {
           label="Year"
           variant="outlined"
           size="small"
-          // value={year}
+          value={year}
           onChange={(e) => setYear(e.target.value)}
         />
         <TextField
@@ -70,15 +70,15 @@ function HeaderForm(props) {
           label="Event"
           variant="outlined"
           size="small"
-          // value={historicalEvent}
+          value={historicalEvent}
           onChange={(e) => setHistoricalEvent(e.target.value)}
         />
         <TextField
-          type="text"
+          type="url"
           label="Image URL"
           variant="outlined"
           size="small"
-          // value={imageUrl}
+          value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
         <Button

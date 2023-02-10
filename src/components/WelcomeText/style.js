@@ -35,6 +35,7 @@ export const Container = styled.main`
 export const Image = styled.img`
   color: white;
   height: 50vh;
+  opacity: .5;
 
   animation: bounce-up 1.5s infinite ease-in-out;
 
