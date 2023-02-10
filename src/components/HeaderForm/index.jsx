@@ -9,11 +9,7 @@ import emptyPhoto from '../../images/paper.svg';
 import AppContext from '../../context/AppContext';
 import { Container, FormContainer } from './style';
 
-function HeaderForm(props) {
-  const { timelineData, setTimelineData } = props;
-
-  const [disableBtn, setDisableBtn] = useState(true);
-
+function HeaderForm() {
   const {
     year,
     setYear,
@@ -21,7 +17,11 @@ function HeaderForm(props) {
     setHistoricalEvent,
     imageUrl,
     setImageUrl,
+    timelineData,
+    setTimelineData,
   } = useContext(AppContext);
+
+  const [disableBtn, setDisableBtn] = useState(true);
 
   const handleAddClick = () => {
     const imageTreatment = imageUrl || emptyPhoto;

@@ -33,10 +33,7 @@ function Main() {
   return (
     <MainContainer>
 
-      <HeaderForm
-        timelineData={timelineData}
-        setTimelineData={setTimelineData}
-      />
+      <HeaderForm />
       { timelineData.length === 0 ? <WelcomeText /> : (
         <Timeline
           timelineData={timelineData}
