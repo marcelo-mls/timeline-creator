@@ -32,18 +32,15 @@ function HeaderForm() {
         return 0;
       });
 
-    localStorage.setItem('timeLineData', JSON.stringify(newTimeLine));
-
+    setTimelineData(newTimeLine);
     toast.success(`Event from ${year} successfully added!`);
 
-    setTimelineData(newTimeLine);
     setYear('');
     setHistoricalEvent('');
     setImageUrl('');
   };
 
   const handleDeleteClick = () => {
-    localStorage.setItem('timeLineData', JSON.stringify([]));
     setTimelineData([]);
     toast.success('Your timeline is ready!');
   };
