@@ -26,36 +26,36 @@ function HeaderForm() {
 
   const [disableBtn, setDisableBtn] = useState(true);
 
-  const handleAdd = () => {
-    const imageTreatment = imageUrl || emptyPhoto;
-    const newTimeLine = [...timelineData, { year, historicalEvent, imageUrl: imageTreatment }]
-      .sort((a, b) => {
-        if (a.year < b.year) return -1;
-        if (a.year > b.year) return 1;
-        return 0;
-      });
+  const insertEvent = (addOrEdit) => {
+    const newTimeline = [...timelineData];
+    const eventInInputs = { year, historicalEvent, imageUrl: imageUrl || emptyPhoto };
 
-    setTimelineData(newTimeLine);
-    toast.success(`Event from ${year} successfully added!`);
+    if (addOrEdit.edit) {
+      newTimeline[addOrEdit.index] = eventInInputs;
+    } else {
+      newTimeline.push(eventInInputs);
+    }
 
+    newTimeline.sort((a, b) => {
+      if (a.year < b.year) return -1;
+      if (a.year > b.year) return 1;
+      return 0;
+    });
+
+    setTimelineData(newTimeline);
     setYear('');
     setImageUrl('');
     setHistoricalEvent('');
   };
 
+  const handleAdd = () => {
+    insertEvent(isInEdit);
+    toast.success(`Event from ${year} successfully added!`);
+  };
+
   const handleEdit = () => {
-    const { index } = isInEdit;
-    const newTimeline = [...timelineData];
-
-    const imageTreatment = imageUrl || emptyPhoto;
-    newTimeline[index] = { year, historicalEvent, imageUrl: imageTreatment };
-
-    setTimelineData(newTimeline);
+    insertEvent(isInEdit);
     toast.success(`Event from ${year} Edited!`);
-
-    setYear('');
-    setImageUrl('');
-    setHistoricalEvent('');
     setIsInEdit({ edit: false, index: null });
   };
 

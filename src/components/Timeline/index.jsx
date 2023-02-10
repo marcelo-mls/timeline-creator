@@ -12,12 +12,11 @@ function Timeline() {
   return (
     <TimelineContainer>
       {timelineData.map(({ historicalEvent, year, imageUrl }, index) => (
-        <div className={index % 2 === 0 ? 'up' : 'down'}>
+        <div key={historicalEvent} className={index % 2 === 0 ? 'up' : 'down'}>
           <YearText>{year}</YearText>
           <p>{historicalEvent}</p>
           <Tooltip
             arrow
-            key={historicalEvent}
             placement="bottom"
             TransitionComponent={Zoom}
             title={<TooltipButtons params={{ index, year }} />}
