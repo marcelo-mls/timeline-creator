@@ -3,7 +3,8 @@ import { toast } from 'react-toastify';
 
 import HeaderForm from '../components/HeaderForm';
 import Timeline from '../components/Timeline';
-import { MainContainer, IntroText } from './style';
+import WelcomeText from '../components/WelcomeText';
+import MainContainer from './style';
 
 function Main() {
   const [timelineData, setTimelineData] = useState(JSON.parse(localStorage.getItem('timeLineData')) || []);
@@ -17,9 +18,7 @@ function Main() {
   };
 
   const handleEdit = (index, year) => {
-    const eventToEdit = timelineData[index];
-
-    console.log(eventToEdit);
+    // const eventToEdit = timelineData[index];
 
     // setTimelineData(newTimeline);
     // localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
@@ -29,16 +28,20 @@ function Main() {
 
   return (
     <MainContainer>
-      <HeaderForm timelineData={timelineData} setTimelineData={setTimelineData} />
-      { timelineData.length === 0
-        ? <IntroText>Use the inputs above to start creating your Timeline...</IntroText>
-        : (
-          <Timeline
-            timelineData={timelineData}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-          />
-        )}
+
+      <HeaderForm
+        timelineData={timelineData}
+        setTimelineData={setTimelineData}
+      />
+
+      { timelineData.length === 0 ? <WelcomeText /> : (
+        <Timeline
+          timelineData={timelineData}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+        />
+      )}
+
     </MainContainer>
   );
 }

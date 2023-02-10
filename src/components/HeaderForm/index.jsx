@@ -5,7 +5,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Button, TextField } from '@mui/material';
 import { toast } from 'react-toastify';
 
-import emptyPhoto from '../../images/paper.png';
+import emptyPhoto from '../../images/paper.svg';
 import AppContext from '../../context/AppContext';
 import { Container, FormContainer } from './style';
 
@@ -92,16 +92,17 @@ function HeaderForm(props) {
         </Button>
       </FormContainer>
 
+      {timelineData.length > 0 && (
       <Button
         type="button"
         variant="contained"
         color="error"
         onClick={handleDeleteClick}
-        disabled={timelineData.length === 0}
         startIcon={<DeleteForeverIcon />}
       >
         Remove all
       </Button>
+      )}
     </Container>
   );
 }

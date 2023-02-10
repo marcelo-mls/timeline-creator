@@ -6,7 +6,7 @@ export const Container = styled.header`
   flex-basis: auto;
   justify-content: space-between;
   align-items: center;
-  background-color: #353B45;
+  background-color: inherit;
   padding: 16px;
 `;
 

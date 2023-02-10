@@ -12,10 +12,10 @@ function TooltipButtons(props) {
   return (
     <>
       <IconButton onClick={() => handleEdit(i, year)}>
-        <CreateIcon color="primary" />
+        <CreateIcon color="primary.contrastText" />
       </IconButton>
       <IconButton onClick={() => handleDelete(i, year)}>
-        <DeleteIcon color="error" />
+        <DeleteIcon color="error.contrastText" />
       </IconButton>
     </>
   );
