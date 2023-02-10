@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import CreateIcon from '@mui/icons-material/Create';
 import { Button, TextField } from '@mui/material';
 import { toast } from 'react-toastify';
 
@@ -19,11 +20,13 @@ function HeaderForm() {
     setImageUrl,
     timelineData,
     setTimelineData,
+    isInEdit,
+    setIsInEdit,
   } = useContext(AppContext);
 
   const [disableBtn, setDisableBtn] = useState(true);
 
-  const handleAddClick = () => {
+  const handleAdd = () => {
     const imageTreatment = imageUrl || emptyPhoto;
     const newTimeLine = [...timelineData, { year, historicalEvent, imageUrl: imageTreatment }]
       .sort((a, b) => {
@@ -36,11 +39,27 @@ function HeaderForm() {
     toast.success(`Event from ${year} successfully added!`);
 
     setYear('');
-    setHistoricalEvent('');
     setImageUrl('');
+    setHistoricalEvent('');
   };
 
-  const handleDeleteClick = () => {
+  const handleEdit = () => {
+    const { index } = isInEdit;
+    const newTimeline = [...timelineData];
+
+    const imageTreatment = imageUrl || emptyPhoto;
+    newTimeline[index] = { year, historicalEvent, imageUrl: imageTreatment };
+
+    setTimelineData(newTimeline);
+    toast.success(`Event from ${year} Edited!`);
+
+    setYear('');
+    setImageUrl('');
+    setHistoricalEvent('');
+    setIsInEdit({ edit: false, index: null });
+  };
+
+  const handleDelete = () => {
     setTimelineData([]);
     toast.success('Your timeline is ready!');
   };
@@ -81,11 +100,12 @@ function HeaderForm() {
         <Button
           type="button"
           variant="contained"
-          onClick={handleAddClick}
+          color={isInEdit.edit ? 'success' : 'primary'}
+          onClick={isInEdit.edit ? handleEdit : handleAdd}
           disabled={disableBtn}
-          startIcon={<AddCircleIcon />}
+          startIcon={isInEdit.edit ? <CreateIcon /> : <AddCircleIcon />}
         >
-          Add to timeline
+          {isInEdit.edit ? 'Save Changes' : 'Add to timeline'}
         </Button>
       </FormContainer>
 
@@ -94,7 +114,7 @@ function HeaderForm() {
         type="button"
         variant="contained"
         color="error"
-        onClick={handleDeleteClick}
+        onClick={handleDelete}
         startIcon={<DeleteForeverIcon />}
       >
         Remove all

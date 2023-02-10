@@ -9,6 +9,7 @@ function AppProvider({ children }) {
   const [imageUrl, setImageUrl] = useState('');
   const [historicalEvent, setHistoricalEvent] = useState('');
   const [timelineData, setTimelineData] = useState(JSON.parse(getLocalStorage('timeLineData')));
+  const [isInEdit, setIsInEdit] = useState({ edit: false, index: null });
 
   const context = useMemo(() => ({
     year,
@@ -19,7 +20,9 @@ function AppProvider({ children }) {
     setImageUrl,
     timelineData,
     setTimelineData,
-  }), [year, historicalEvent, imageUrl, timelineData]);
+    isInEdit,
+    setIsInEdit,
+  }), [year, historicalEvent, imageUrl, timelineData, isInEdit]);
 
   useEffect(() => {
     setLocalStorage('timeLineData', timelineData);

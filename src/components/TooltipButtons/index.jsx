@@ -9,7 +9,14 @@ import AppContext from '../../context/AppContext';
 
 function TooltipButtons(props) {
   const { params } = props;
-  const { timelineData, setTimelineData } = useContext(AppContext);
+  const {
+    setYear,
+    setHistoricalEvent,
+    setImageUrl,
+    timelineData,
+    setTimelineData,
+    setIsInEdit,
+  } = useContext(AppContext);
 
   const handleDelete = (param) => {
     const newTimeline = timelineData.filter((_event, index) => index !== param.index);
@@ -19,11 +26,12 @@ function TooltipButtons(props) {
   };
 
   const handleEdit = (param) => {
-    // const eventToEdit = timelineData[param.index];
-    // setTimelineData(newTimeline);
-    // localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
+    const eventToEdit = timelineData[param.index];
 
-    toast.success(`Event from ${param.year} Edited!`);
+    setIsInEdit({ edit: true, index: param.index });
+    setYear(eventToEdit.year);
+    setHistoricalEvent(eventToEdit.historicalEvent);
+    setImageUrl(eventToEdit.imageUrl);
   };
 
   return (
