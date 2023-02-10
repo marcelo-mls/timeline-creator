@@ -21,8 +21,7 @@ function Timeline(props) {
           TransitionComponent={Zoom}
           title={(
             <TooltipButtons
-              i={index}
-              year={item.year}
+              param={{ index, year: item.year }}
               handleDelete={handleDelete}
               handleEdit={handleEdit}
             />

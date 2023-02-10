@@ -5,16 +5,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
 
 function TooltipButtons(props) {
-  const {
-    i, year, handleDelete, handleEdit,
-  } = props;
+  const { param, handleDelete, handleEdit } = props;
 
   return (
     <>
-      <IconButton onClick={() => handleEdit(i, year)}>
+      <IconButton onClick={() => handleEdit(param)}>
         <CreateIcon color="primary.contrastText" />
       </IconButton>
-      <IconButton onClick={() => handleDelete(i, year)}>
+      <IconButton onClick={() => handleDelete(param)}>
         <DeleteIcon color="error.contrastText" />
       </IconButton>
     </>

@@ -8,26 +8,22 @@ import AppContext from '../context/AppContext';
 import MainContainer from './style';
 
 function Main() {
-  const {
-    timelineData,
-    setTimelineData,
-  } = useContext(AppContext);
+  const { timelineData, setTimelineData } = useContext(AppContext);
 
-  const handleDelete = (index, year) => {
-    const newTimeline = timelineData.filter((_historicalEvent, i) => i !== index);
+  const handleDelete = (param) => {
+    const newTimeline = timelineData.filter((_historicalEvent, i) => i !== param.index);
     setTimelineData(newTimeline);
     localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
 
-    toast.success(`Event from ${year} deleted!`);
+    toast.success(`Event from ${param.year} deleted!`);
   };
 
-  const handleEdit = (index, year) => {
-    // const eventToEdit = timelineData[index];
-
+  const handleEdit = (param) => {
+    // const eventToEdit = timelineData[param.index];
     // setTimelineData(newTimeline);
     // localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
 
-    toast.success(`Event from ${year} Edited!`);
+    toast.success(`Event from ${param.year} Edited!`);
   };
 
   return (
