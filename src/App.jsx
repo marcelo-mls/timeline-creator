@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Main from './pages/Main';
 import AppProvider from './context/AppProvider';
-import darkTheme from './services/themeColor';
+import darkTheme from './services/style/themeColor';
 
 function App() {
   return (
