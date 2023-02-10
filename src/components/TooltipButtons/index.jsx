@@ -14,7 +14,6 @@ function TooltipButtons(props) {
   const handleDelete = (param) => {
     const newTimeline = timelineData.filter((_event, index) => index !== param.index);
     setTimelineData(newTimeline);
-    localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
 
     toast.success(`Event from ${param.year} deleted!`);
   };
