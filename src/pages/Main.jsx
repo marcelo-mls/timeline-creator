@@ -32,16 +32,12 @@ function Main() {
 
   return (
     <MainContainer>
-
       <HeaderForm />
-      { timelineData.length === 0 ? <WelcomeText /> : (
-        <Timeline
-          timelineData={timelineData}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        />
-      )}
-
+      {
+        timelineData.length === 0
+          ? <WelcomeText />
+          : <Timeline handleDelete={handleDelete} handleEdit={handleEdit} />
+      }
     </MainContainer>
   );
 }

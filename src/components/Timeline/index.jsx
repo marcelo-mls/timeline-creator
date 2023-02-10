@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip, Zoom } from '@mui/material';
 
 import { TimelineContainer, YearText } from './style';
 import TooltipButtons from '../TooltipButtons';
+import AppContext from '../../context/AppContext';
 
 function Timeline(props) {
-  const { timelineData, handleDelete, handleEdit } = props;
+  const { handleDelete, handleEdit } = props;
+
+  const { timelineData } = useContext(AppContext);
 
   return (
     <TimelineContainer>
