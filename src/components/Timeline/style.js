@@ -28,20 +28,6 @@ export const TimelineContainer = styled.main`
     overflow-x: auto;
   }
 
-  img {
-    border: 3px solid #0277BD;
-    background-color: white;
-    border-radius: 50%;
-    height: 100px;
-    object-fit: cover;
-    width: 100px;
-    transition: transform 800ms ease;
-
-    &:hover {
-      transform: scale(1.1)
-    }
-  }
-
   &:after {
     content: '';
     height: 4px;
@@ -57,4 +43,18 @@ export const YearText = styled.h1`
   color: #0277BD;
   font-size: larger;
   font-weight: 700;
+`;
+
+export const Image = styled.img`
+  border: 3px solid #0277BD;
+  background-color: white;
+  border-radius: 50%;
+  height: 100px;
+  object-fit: cover;
+  width: 100px;
+  transition: transform 800ms ease;
+
+  &:hover {
+    transform: scale(1.1)
+  }
 `;

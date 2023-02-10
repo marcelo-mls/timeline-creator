@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip, Zoom } from '@mui/material';
 
-import { TimelineContainer, YearText } from './style';
+import { TimelineContainer, YearText, Image } from './style';
 import TooltipButtons from '../TooltipButtons';
 import AppContext from '../../context/AppContext';
 
@@ -12,19 +12,19 @@ function Timeline() {
   return (
     <TimelineContainer>
       {timelineData.map(({ historicalEvent, year, imageUrl }, index) => (
-        <Tooltip
-          arrow
-          key={historicalEvent}
-          placement="bottom"
-          TransitionComponent={Zoom}
-          title={<TooltipButtons params={{ index, year }} />}
-        >
-          <div className={index % 2 === 0 ? 'up' : 'down'}>
-            <YearText>{year}</YearText>
-            <p>{historicalEvent}</p>
-            <img src={imageUrl} alt={historicalEvent} />
-          </div>
-        </Tooltip>
+        <div className={index % 2 === 0 ? 'up' : 'down'}>
+          <YearText>{year}</YearText>
+          <p>{historicalEvent}</p>
+          <Tooltip
+            arrow
+            key={historicalEvent}
+            placement="bottom"
+            TransitionComponent={Zoom}
+            title={<TooltipButtons params={{ index, year }} />}
+          >
+            <Image src={imageUrl} alt={historicalEvent} />
+          </Tooltip>
+        </div>
       ))}
     </TimelineContainer>
   );
