@@ -10,7 +10,7 @@ function Main() {
   const [timelineData, setTimelineData] = useState(JSON.parse(localStorage.getItem('timeLineData')) || []);
 
   const handleDelete = (index, year) => {
-    const newTimeline = timelineData.filter((_event, i) => i !== index);
+    const newTimeline = timelineData.filter((_historicalEvent, i) => i !== index);
     setTimelineData(newTimeline);
     localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
 
