@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import HeaderForm from '../components/HeaderForm';
@@ -9,9 +9,9 @@ import MainContainer from './style';
 
 function Main() {
   const {
-    historicalEvent,
+    timelineData,
+    setTimelineData,
   } = useContext(AppContext);
-  const [timelineData, setTimelineData] = useState(JSON.parse(localStorage.getItem('timeLineData')) || []);
 
   const handleDelete = (index, year) => {
     const newTimeline = timelineData.filter((_historicalEvent, i) => i !== index);
@@ -37,7 +37,6 @@ function Main() {
         timelineData={timelineData}
         setTimelineData={setTimelineData}
       />
-      <p>{`teste ${historicalEvent}`}</p>
       { timelineData.length === 0 ? <WelcomeText /> : (
         <Timeline
           timelineData={timelineData}

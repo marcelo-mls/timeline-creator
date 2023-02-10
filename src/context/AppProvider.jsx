@@ -5,8 +5,9 @@ import AppContext from './AppContext';
 
 function AppProvider({ children }) {
   const [year, setYear] = useState('');
-  const [historicalEvent, setHistoricalEvent] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [historicalEvent, setHistoricalEvent] = useState('');
+  const [timelineData, setTimelineData] = useState(JSON.parse(localStorage.getItem('timeLineData')) || []);
 
   const context = useMemo(() => ({
     year,
@@ -15,7 +16,9 @@ function AppProvider({ children }) {
     setHistoricalEvent,
     imageUrl,
     setImageUrl,
-  }), [year, historicalEvent, imageUrl]);
+    timelineData,
+    setTimelineData,
+  }), [year, historicalEvent, imageUrl, timelineData]);
 
   return (
     <AppContext.Provider value={context}>
