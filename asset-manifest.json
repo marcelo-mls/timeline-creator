@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/timeline-creator/static/css/main.ba33a6bf.css",
-    "main.js": "/timeline-creator/static/js/main.e91dfaf8.js",
+    "main.css": "/timeline-creator/static/css/main.dbfbea67.css",
+    "main.js": "/timeline-creator/static/js/main.d3249196.js",
     "static/media/paper.svg": "/timeline-creator/static/media/paper.35265030f3ecae53dbb9cf7f4b28ef25.svg",
     "static/media/up.svg": "/timeline-creator/static/media/up.903f58445bbda85318dcd085debc7abb.svg",
     "index.html": "/timeline-creator/index.html",
-    "main.ba33a6bf.css.map": "/timeline-creator/static/css/main.ba33a6bf.css.map",
-    "main.e91dfaf8.js.map": "/timeline-creator/static/js/main.e91dfaf8.js.map"
+    "main.dbfbea67.css.map": "/timeline-creator/static/css/main.dbfbea67.css.map",
+    "main.d3249196.js.map": "/timeline-creator/static/js/main.d3249196.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba33a6bf.css",
-    "static/js/main.e91dfaf8.js"
+    "static/css/main.dbfbea67.css",
+    "static/js/main.d3249196.js"
   ]
 }
