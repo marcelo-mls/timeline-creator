@@ -4,6 +4,7 @@ export const Container = styled.main`
   display: flex;
   align-items: center;
   flex-grow: 1;
+  user-select: none;
 
   div {
     color: white;
