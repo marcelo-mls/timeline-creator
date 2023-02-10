@@ -27,11 +27,16 @@ function TooltipButtons(props) {
 
   const handleEdit = (param) => {
     const eventToEdit = timelineData[param.index];
+    const staticImageUrl = '/timeline-creator/static/media/paper.35265030f3ecae53dbb9cf7f4b28ef25.svg';
+
+    const imageTreatment = eventToEdit.imageUrl === staticImageUrl
+      ? ''
+      : eventToEdit.imageUrl;
 
     setIsInEdit({ edit: true, index: param.index });
     setYear(eventToEdit.year);
     setHistoricalEvent(eventToEdit.historicalEvent);
-    setImageUrl(eventToEdit.imageUrl);
+    setImageUrl(imageTreatment);
   };
 
   return (
