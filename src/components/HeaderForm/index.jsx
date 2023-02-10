@@ -74,7 +74,7 @@ function HeaderForm() {
           onChange={(e) => setHistoricalEvent(e.target.value)}
         />
         <TextField
-          type="text"
+          type="url"
           label="Image URL"
           variant="outlined"
           size="small"
