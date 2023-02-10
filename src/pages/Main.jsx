@@ -1,30 +1,13 @@
 import React, { useContext } from 'react';
-import { toast } from 'react-toastify';
 
 import HeaderForm from '../components/HeaderForm';
 import Timeline from '../components/Timeline';
 import WelcomeText from '../components/WelcomeText';
-import AppContext from '../context/AppContext';
 import MainContainer from './style';
+import AppContext from '../context/AppContext';
 
 function Main() {
-  const { timelineData, setTimelineData } = useContext(AppContext);
-
-  const handleDelete = (param) => {
-    const newTimeline = timelineData.filter((_historicalEvent, i) => i !== param.index);
-    setTimelineData(newTimeline);
-    localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
-
-    toast.success(`Event from ${param.year} deleted!`);
-  };
-
-  const handleEdit = (param) => {
-    // const eventToEdit = timelineData[param.index];
-    // setTimelineData(newTimeline);
-    // localStorage.setItem('timeLineData', JSON.stringify(newTimeline));
-
-    toast.success(`Event from ${param.year} Edited!`);
-  };
+  const { timelineData } = useContext(AppContext);
 
   return (
     <MainContainer>
@@ -32,7 +15,7 @@ function Main() {
       {
         timelineData.length === 0
           ? <WelcomeText />
-          : <Timeline handleDelete={handleDelete} handleEdit={handleEdit} />
+          : <Timeline />
       }
     </MainContainer>
   );
