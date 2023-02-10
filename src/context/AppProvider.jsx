@@ -1,11 +1,20 @@
-import React, { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import AppContext from './AppContext';
 
 function AppProvider({ children }) {
-  const context = useMemo(() => ({
+  const [year, setYear] = useState('');
+  const [historicalEvent, setHistoricalEvent] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
+  const context = useMemo(() => ({
+    year,
+    setYear,
+    historicalEvent,
+    setHistoricalEvent,
+    imageUrl,
+    setImageUrl,
   }), []);
 
   return (

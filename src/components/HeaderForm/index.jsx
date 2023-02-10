@@ -1,28 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Button, TextField } from '@mui/material';
 import { toast } from 'react-toastify';
-import emptyPhoto from '../../images/paper.png';
 
+import emptyPhoto from '../../images/paper.png';
+import AppContext from '../../context/AppContext';
 import { Container, FormContainer } from './style';
 
 function HeaderForm(props) {
   const { timelineData, setTimelineData } = props;
 
-  const [year, setYear] = useState('');
-  const [event, setEvent] = useState('');
-  const [image, setImage] = useState('');
   const [disableBtn, setDisableBtn] = useState(true);
 
+  const {
+    year,
+    setYear,
+    historicalEvent,
+    setHistoricalEvent,
+    imageUrl,
+    setImageUrl,
+  } = useContext(AppContext);
+
   const handleAddClick = () => {
-    const imageTreatment = image || emptyPhoto;
-    const newTimeLine = [...timelineData, { year, event, image: imageTreatment }].sort((a, b) => {
-      if (a.year < b.year) return -1;
-      if (a.year > b.year) return 1;
-      return 0;
-    });
+    const imageTreatment = imageUrl || emptyPhoto;
+    const newTimeLine = [...timelineData, { year, setHistoricalEvent, imageUrl: imageTreatment }]
+      .sort((a, b) => {
+        if (a.year < b.year) return -1;
+        if (a.year > b.year) return 1;
+        return 0;
+      });
 
     localStorage.setItem('timeLineData', JSON.stringify(newTimeLine));
 
@@ -30,8 +38,8 @@ function HeaderForm(props) {
 
     setTimelineData(newTimeLine);
     setYear('');
-    setEvent('');
-    setImage('');
+    setHistoricalEvent('');
+    setImageUrl('');
   };
 
   const handleDeleteClick = () => {
@@ -40,11 +48,11 @@ function HeaderForm(props) {
     toast.success('Your timeline is ready!');
   };
 
-  const handleDisableBtn = () => year.length > 0 && event.length > 0;
+  const handleDisableBtn = () => year.length > 0 && historicalEvent.length > 0;
 
   useEffect(() => {
     setDisableBtn(!handleDisableBtn());
-  }, [year, event]);
+  }, [year, historicalEvent]);
 
   return (
     <Container>
@@ -54,7 +62,7 @@ function HeaderForm(props) {
           label="Year"
           variant="outlined"
           size="small"
-          value={year}
+          // value={year}
           onChange={(e) => setYear(e.target.value)}
         />
         <TextField
@@ -62,16 +70,16 @@ function HeaderForm(props) {
           label="Event"
           variant="outlined"
           size="small"
-          value={event}
-          onChange={(e) => setEvent(e.target.value)}
+          // value={historicalEvent}
+          onChange={(e) => setHistoricalEvent(e.target.value)}
         />
         <TextField
           type="text"
           label="Image URL"
           variant="outlined"
           size="small"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          // value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
         <Button
           type="button"
