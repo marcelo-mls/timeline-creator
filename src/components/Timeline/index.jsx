@@ -1,26 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tooltip, IconButton, Zoom } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Tooltip, Zoom } from '@mui/material';
 
 import { TimelineContainer, YearText } from './style';
+import TooltipButtons from '../TooltipButtons';
 
 function Timeline(props) {
-  const { timelineData, handleDelete } = props;
+  const { timelineData, handleDelete, handleEdit } = props;
 
   return (
     <TimelineContainer>
       {timelineData.map((item, index) => (
         <Tooltip
-          title={(
-            <IconButton onClick={() => handleDelete(index, item.year)}>
-              <DeleteIcon color="error" />
-            </IconButton>
-          )}
-          key={item.event}
           arrow
-          TransitionComponent={Zoom}
+          key={item.event}
           placement="bottom"
+          TransitionComponent={Zoom}
+          title={(
+            <TooltipButtons
+              i={index}
+              year={item.year}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            />
+          )}
         >
           <div className={index % 2 === 0 ? 'up' : 'down'}>
             <YearText>{item.year}</YearText>
@@ -35,6 +38,8 @@ function Timeline(props) {
 
 Timeline.propTypes = {
   timelineData: PropTypes.array,
+  handleDelete: PropTypes.func,
+  handleEdit: PropTypes.func,
 }.isRequired;
 
 export default Timeline;
