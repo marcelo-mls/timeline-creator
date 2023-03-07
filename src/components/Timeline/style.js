@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const TimelineContainer = styled.main`
   display: flex;
   justify-content: space-around;
+  /* justify-content: ${(props) => (props.cards > 10 ? 'center' : 'space-around')}; */
   align-items: center;
   flex-grow: 1;
   flex-basis: auto;
   overflow-x: auto;
-  width: 100%;
   position: relative;
 
   div {
@@ -31,6 +31,7 @@ export const TimelineContainer = styled.main`
   &:after {
     content: '';
     height: 4px;
+    /* width: ${(props) => props.myWidth}px; */
     width: 100%;
     position: absolute;
     background-color: #0277BD;
