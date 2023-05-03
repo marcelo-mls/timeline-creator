@@ -4,5 +4,5 @@ export function setLocalStorage(title, payload) {
 
 export function getLocalStorage(title) {
   const result = localStorage.getItem(title);
-  return result || [];
+  return result || '[]';
 }
