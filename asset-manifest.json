@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/timeline-creator/static/css/main.dbfbea67.css",
-    "main.js": "/timeline-creator/static/js/main.d3249196.js",
+    "main.js": "/timeline-creator/static/js/main.0da535b7.js",
     "static/media/paper.svg": "/timeline-creator/static/media/paper.35265030f3ecae53dbb9cf7f4b28ef25.svg",
     "static/media/up.svg": "/timeline-creator/static/media/up.903f58445bbda85318dcd085debc7abb.svg",
     "index.html": "/timeline-creator/index.html",
     "main.dbfbea67.css.map": "/timeline-creator/static/css/main.dbfbea67.css.map",
-    "main.d3249196.js.map": "/timeline-creator/static/js/main.d3249196.js.map"
+    "main.0da535b7.js.map": "/timeline-creator/static/js/main.0da535b7.js.map"
   },
   "entrypoints": [
     "static/css/main.dbfbea67.css",
-    "static/js/main.d3249196.js"
+    "static/js/main.0da535b7.js"
   ]
 }
