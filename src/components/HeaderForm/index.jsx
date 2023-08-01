@@ -51,9 +51,11 @@ function HeaderForm() {
   const handleAdd = () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: 'inputSubmit',
-      inputValue: { year, historicalEvent },
+      event: 'insert_click',
+      component: 'button',
+      value: { year, historicalEvent },
     });
+
     insertEvent(isInEdit);
     toast.success(`Event from ${year} successfully added!`);
   };
